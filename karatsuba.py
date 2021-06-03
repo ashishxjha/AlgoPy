@@ -15,7 +15,7 @@ def karatsuba(num1,num2):
 
         return (z2*10 ** (m2*2)) + ((z1 - z2 - z0)*10**m2) + z0
 
-print(karatsuba(1234,4321))
+print(karatsuba(1234567, 8757382))
 
 
 
