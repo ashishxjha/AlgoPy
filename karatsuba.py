@@ -1,3 +1,5 @@
+from time import time
+
 def karatsuba(num1,num2):
     if(num1<10 or num2<10):
         return (num1*num2)
@@ -15,9 +17,19 @@ def karatsuba(num1,num2):
 
         return (z2*10 ** (m2*2)) + ((z1 - z2 - z0)*10**m2) + z0
 
-print(karatsuba(1234567, 8757382))
+n1 = 452452525265324325
+n2 = 525426236565342352
+beg1 = time()
+a = karatsuba(n1, n2)
+end1 = time()
 
+t1 = end1 - beg1
 
+beg2 = time()
+b = n1 * n2
+end2 = time()
 
+t2 = end2 - beg2
+print(f"{t1} {t2}")
 
 
