@@ -1,8 +1,7 @@
 #include <bits/stdc++.h>
-#include "boost.h"
 using namespace std;
 
-boost::multiprecision::int128_t karatsuba (int128_t num1, int128_t num2){
+long long int karatsuba (long long int num1, long long int num2){
 	if (num1 < 10 || num2 < 10)
 		return num1*num2;
 
@@ -16,28 +15,28 @@ boost::multiprecision::int128_t karatsuba (int128_t num1, int128_t num2){
 	string num1_s = to_string(num1);
 	string num2_s = to_string(num2);
 
-	boost::multiprecision::int128_t a, b, c, d;
+	long long int a, b, c, d;
 	
-	a = (int128_t) pow(num1/10, m2);
-	b = (int128_t) pow(num1%10, m2);
-	c = (int128_t) pow(num2/10, m2);
-	d = (int128_t) pow(num2%10, m2);
+	a = (long long int) (pow(num1/10, m2)+0.5);
+	b = (long long int) (pow(num1%10, m2)+0.5);
+	c = (long long int) (pow(num2/10, m2)+0.5);
+	d = (long long int) (pow(num2%10, m2)+0.5);
 
 
-	boost::multiprecision::int128_t z0, z1, z2;
+	long long int z0, z1, z2;
 	z0 = karatsuba(b, d);
 	z1 = karatsuba((a+b), (c+d));
 	z2 = karatsuba(a, c);
 
-	boost::multiprecision::int128_t res;
+	long long int res;
 	res = z2 * pow(10, m2*2) + ((z1 - z2 - z0) * (pow(10, m2))) + z0;
-
+	printf("%lli\n\n\n", res);
 	return res;
 }
 
 int main(void){
-	printf("%lli", karatsuba(12345, 65673));
+	printf("%lli\n", karatsuba(12345, 65673));
+	printf("%lli\n", 12345*65673);
 	return 0;
 }
-
 
